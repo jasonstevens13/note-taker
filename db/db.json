@@ -1,12 +1,1 @@
-[
-    {
-        "title": "Test Title4",
-        "text": "Test text4",
-        "id": 4
-    },
-    {
-        "title": "Test Title5",
-        "text": "Test text5",
-        "id": 5
-    }
-]
+{"title":"testtitle4","text":"testtext4","id":4}
