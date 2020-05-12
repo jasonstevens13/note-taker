@@ -3,11 +3,14 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 
+// import { v4 as uuidv4 } from 'uuid';
+const { v4: uuidv4 } = require('uuid');
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 9000;
 
 // Sets up the Express app to handle data parsing (middleware)
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -29,18 +32,43 @@ app.get("/api/notes", (req, res) => {
 
 app.post("/api/notes", (req, res) => {
 
-    const newNote = req.body;
+    //{title:"",text:""}
+    const { title, text } = req.body;
+    const id = uuidv4();
 
-    fs.writeFile("db/db.json", JSON.stringify(newNote))
+    const newNote = {
+        id, title, text
+    };
+    // read all notes jsnon parse
+    //push the new note
+    dbData.push(newNote);
+    fs.writeFile(dbPath, JSON.stringify(dbData), function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("The note was saved!");
+    });
     res.json(newNote);
 });
 
+
+
 // DELETE route
-// app.delete("/api/notes/:id", (req, res) => {
+app.delete("/api/notes/:id", (req, res) => {
+    let idDelete = req.params.id;
 
+    //filter dbData 
+    let newDbData = dbData.filter(note => note.id != idDelete);
 
-// };
+    fs.writeFile(dbPath, JSON.stringify(newDbData), function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("The note was deleted!");
 
+    });
+    res.json(dbData);
+});
 
 
 
