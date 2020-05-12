@@ -1,5 +1,5 @@
 # Note-Taker
-A full-stack app, that allows the user to add notes to their to-do list!
+A full-stack app, that allows the user to add notes to their to-do list! Revisit the url to find your list there waiting for you!
 
 
 ## Table of Contents
