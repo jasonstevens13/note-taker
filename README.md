@@ -1,6 +1,7 @@
 # Note-Taker
 A full-stack app, that allows the user to add notes to their to-do list!
-![Pic](https://github.com/jasonstevens13/note-taker/blob/master/public/assets/images/screenshot1.jpg)
+
+![Pic1](https://github.com/jasonstevens13/note-taker/blob/master/public/assets/images/screenshot1.jpg)
 
 <!-- screen shot here -->
 
