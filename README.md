@@ -7,7 +7,6 @@ A full-stack app, that allows the user to add notes to their to-do list!
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#licesnse)
-  * [Badges](#badges)
   * [Contributing](#contributing)
   * [Tests](#tests)
   * [Questions](#questions)
