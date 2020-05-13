@@ -17,7 +17,7 @@ app.use(express.json());
 
 const DB_DIR = path.resolve(__dirname, "db");
 const dbPath = path.join(DB_DIR, "db.json");
-const dbData = JSON.parse(fs.readFileSync(dbPath, "utf8"));
+let dbData = JSON.parse(fs.readFileSync(dbPath, "utf8"));
 
 // ROUTES
 
@@ -58,9 +58,9 @@ app.delete("/api/notes/:id", (req, res) => {
     let idDelete = req.params.id;
 
     //filter dbData 
-    let newDbData = dbData.filter(note => note.id != idDelete);
+    dbData = dbData.filter(note => note.id != idDelete);
 
-    fs.writeFile(dbPath, JSON.stringify(newDbData), function (err) {
+    fs.writeFile(dbPath, JSON.stringify(dbData), function (err) {
         if (err) {
             return console.log(err);
         }
